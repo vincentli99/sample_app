@@ -1,8 +1,10 @@
 SampleApp::Application.routes.draw do
+  get "account_activations/edit"
   get 'login' => "sessions#new"
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
   get "users/new"
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
