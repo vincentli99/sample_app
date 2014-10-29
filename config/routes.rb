@@ -8,6 +8,7 @@ SampleApp::Application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :microposts, only: [:create, :destroy]
   get "users/new"
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
